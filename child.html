@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <body>
+    child
+    <hr />
+    <div id='messages'></div>
+    <hr />
+
+  <!--
+    note - the information here MUST match the cdc.initialize below.
+           the name should exactly equal the domain of the parent frame.
+           the src should be the root of the domain of the parent frame - but could be another page on the parent domain.
+  -->
+    <iframe src='http://localhost' name='localhost' style='display:none'></iframe>
+  </body>
+
+  <script src="cdc.js"></script>
+
+  <script>
+    window.onload = function(){
+      var say = function(msg){
+        var messages = document.getElementById('messages');
+        var message = document.createElement('div');
+        message.innerHTML = msg;
+        messages.appendChild(message);
+      };
+
+    /*
+      note - the information provided here MUST match the child iframe above
+    */
+      cdc.initialize({
+        'role' : 'client',
+        'src' : 'http://localhost',
+        'target' : frames['localhost']
+      });
+
+      cdc.send("message from child");
+      cdc.recv(function(msg){ say('recv: ' + msg) });
+
+      setTimeout(function(){ cdc.send("another message from child") }, 200 + Math.random());
+    };
+  </script>
+</html>

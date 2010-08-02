@@ -1,0 +1,6 @@
+
+uber simple cross domain iframe communication.
+
+see parent.html and child.html for an example, which is configured to be viewed via
+
+  http://localhost/cdc/parent.html
