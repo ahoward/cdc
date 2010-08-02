@@ -21,7 +21,7 @@ if(!window.cdc){
     return cdc.instance.recv(callback);
   };
 
-// server class
+// servant class - base for server/client
 //
   cdc.servant = function(){
     var options = arguments[0] || {};
