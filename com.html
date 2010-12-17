@@ -1,0 +1,11 @@
+<html>
+  <body>
+  </body>
+  <script>
+    window.onload = function(){
+      domain = location.hash;
+      alert(domain);
+      document.domain = domain.replace(/^#/, '');
+    }
+  </script>
+</html>

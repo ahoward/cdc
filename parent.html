@@ -8,13 +8,17 @@
   <!--
     note - the information here MUST match the cdc.initialize below
   -->
-    <iframe src="http://codeforpeople.com/cdc/child.html" name="child"></iframe>
+    <iframe src="http://a.localhost/cdc/child.html" name="child"></iframe>
 
   </body>
 
   <script src="cdc.js"></script>
 
   <script>
+    window.onload = function(){
+      //console.log(frames.child.com);
+    };
+if(false){
     window.onload = function(){
       var say = function(msg){
         var messages = document.getElementById('messages');
@@ -37,5 +41,6 @@
 
       setTimeout(function(){ cdc.send("another message from parent") }, 200 + Math.random());
     };
+}
   </script>
 </html>

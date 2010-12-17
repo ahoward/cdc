@@ -37,7 +37,8 @@ if(!window.cdc){
     methods.send = function(message){
       var instance = this;
       var msg = encodeURIComponent(message);
-      instance.target.location = instance.src + '#' + msg;
+      //instance.target.location = instance.src + '#' + msg;
+      instance.target.location = '#' + msg;
       return(instance);
     };
 
